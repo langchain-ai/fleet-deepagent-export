@@ -6,6 +6,8 @@ Runtime support for agents exported from LangSmith Fleet. Reads the export confi
 
 ## Quickstart
 
+Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/) and Python 3.11+ (`uv` will fetch a compatible Python if you don't have one).
+
 1. Clone this repo and copy the starter out of it:
    ```bash
    git clone https://github.com/langchain-ai/fleet-deepagent-export.git
@@ -22,9 +24,11 @@ Runtime support for agents exported from LangSmith Fleet. Reads the export confi
    The three `LANGSMITH_*_ID` values live in `fleet/config.json` under `metadata` — just copy them across.
 4. Run:
    ```bash
-   make setup    # uv sync
-   make dev      # LangGraph dev server — opens Studio
-   make run      # terminal REPL
+   make setup    # install dependencies (uv sync)
+
+   # then use one of these to interact with the agent:
+   make dev      # LangGraph Studio — browser UI for chatting with the agent and inspecting graph state
+   make run      # terminal REPL via cli.py — text-only chat
    ```
 
 Re-exporting from Fleet later? Wipe and re-unzip — the rest of your project is untouched:
