@@ -90,7 +90,7 @@ If you want it in your own project directly (no starter), add to your
 dependencies:
 
 ```
-fleet-deepagent-export @ git+https://github.com/langchain-ai/tmp-fleet-download-code.git
+fleet-deepagent-export @ git+https://github.com/langchain-ai/fleet-deepagent-export.git
 ```
 
 (Will be published to PyPI once the API stabilizes.)
