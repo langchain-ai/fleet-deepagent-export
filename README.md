@@ -83,15 +83,14 @@ Servers not in the registry are skipped with a warning.
 
 ## Install
 
-The starter's `pyproject.toml` already depends on this package via a git
-URL pointing at this repo, so `make setup` pulls it in — you typically
-don't install it by hand.
+Most users should follow the [Quickstart](#quickstart) above — the
+starter's `pyproject.toml` already depends on this package via the
+git URL below, so `make setup` (which runs `uv sync`) installs it for
+you. You don't need to touch dependencies by hand.
 
-If you want it in your own project directly (no starter), add to your
-dependencies:
+For projects that bring their own runtime wiring (no starter), add to
+your `pyproject.toml` dependencies:
 
 ```
 fleet-deepagent-export @ git+https://github.com/langchain-ai/fleet-deepagent-export.git
 ```
-
-(Will be published to PyPI once the API stabilizes.)
