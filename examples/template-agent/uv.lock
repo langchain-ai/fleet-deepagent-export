@@ -389,26 +389,12 @@ wheels = [
 [[package]]
 name = "fleet-deepagent-export"
 version = "0.1.0"
-source = { editable = "../../" }
+source = { git = "https://github.com/langchain-ai/fleet-deepagent-export.git#d573fb7b5f23d33453d42987ab2f90b4e3a6da16" }
 dependencies = [
     { name = "deepagents" },
     { name = "httpx" },
     { name = "langchain-mcp-adapters" },
     { name = "python-dotenv" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "deepagents", specifier = ">=0.3.9" },
-    { name = "httpx", specifier = ">=0.27.0" },
-    { name = "langchain-mcp-adapters", specifier = ">=0.2.0" },
-    { name = "python-dotenv", specifier = ">=1.0.0" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pytest", specifier = ">=8.0" },
-    { name = "pytest-asyncio", specifier = ">=0.23" },
 ]
 
 [[package]]
@@ -1165,12 +1151,12 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fleet-deepagent-export", editable = "../../" },
+    { name = "fleet-deepagent-export", git = "https://github.com/langchain-ai/fleet-deepagent-export.git" },
     { name = "langchain-anthropic", specifier = ">=1.0.0" },
     { name = "langchain-google-genai", specifier = ">=3.0.0" },
     { name = "langchain-openai", specifier = ">=1.0.0" },
     { name = "langgraph", specifier = ">=1.0.2" },
-    { name = "langgraph-cli", extras = ["inmem"], specifier = ">=0.1.60" },
+    { name = "langgraph-cli", extras = ["inmem"], specifier = ">=0.4.24" },
     { name = "langgraph-sdk", specifier = ">=0.1.60" },
 ]
 
