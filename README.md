@@ -18,6 +18,7 @@ Runtime support for agents exported from LangSmith Fleet. Reads the export confi
    ```bash
    cp .env.example .env   # then edit
    ```
+   The three `LANGSMITH_*_ID` values live in `fleet/config.json` under `metadata` — just copy them across.
 4. Run:
    ```bash
    make setup    # uv sync
@@ -73,9 +74,9 @@ Servers not in the registry are skipped with a warning.
 |---|---|---|
 | `ANTHROPIC_API_KEY` | yes (default) | Model provider. `create_deep_agent` accepts any LangChain-compatible prefix (`anthropic:`, `openai:`, `google-genai:`, etc.) — set the matching provider's API key instead if you override the model in `agent.py`. |
 | `LANGSMITH_API_KEY` | yes | PAT with `mcp-servers:read` + `mcp-servers:invoke`. Used for tracing, registry lookup, and builtin-server auth. |
-| `LANGSMITH_TENANT_ID` | yes | Workspace UUID. Required for `/v1/platform/fleet/*` routing in prod; without it, nginx 404s before hitting smith-go. |
-| `LANGSMITH_ORGANIZATION_ID` | yes | Same — required alongside `LANGSMITH_TENANT_ID`. |
-| `LANGSMITH_USER_ID` | yes (if any OAuth tool) | User UUID for OAuth token exchange and builtin-server per-user grant lookup. Auto-resolution via `/me` 403s for PATs, so set explicitly. |
+| `LANGSMITH_TENANT_ID` | yes | Workspace UUID. Copy from `fleet/config.json` → `metadata.tenant_id`. Required for `/v1/platform/fleet/*` routing in prod; without it, nginx 404s before hitting smith-go. |
+| `LANGSMITH_ORGANIZATION_ID` | yes | Org UUID. Copy from `fleet/config.json` → `metadata.organization_id`. Required alongside `LANGSMITH_TENANT_ID`. |
+| `LANGSMITH_USER_ID` | yes (if any OAuth tool) | User UUID. Copy from `fleet/config.json` → `metadata.ls_user_id`. Used for OAuth token exchange and builtin-server per-user grant lookup. |
 | `BUILTIN_MCP_URL` | yes (if any builtin tool) | e.g. `https://tools.langchain.com/mcp`. Hostname is used to detect which tool entries route to the builtin server. Hosted, localhost, and self-hosted deployments each set it to their respective URL. |
 | `LANGSMITH_HOST_URL` | no | Override smith-backend host (default `https://api.smith.langchain.com`). Needed for self-hosted. |
 | `HOST_LANGCHAIN_API_URL` | no | Override the OAuth broker host (default `https://api.host.langchain.com`). Needed for self-hosted. |

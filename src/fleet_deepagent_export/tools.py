@@ -331,13 +331,11 @@ def _host_backend_url() -> str:
 def _user_id() -> str:
     """LangSmith user UUID — required for OAuth token exchange and per-user grants.
 
-    Must be set explicitly in .env; auto-resolving via ``/api/v1/me/ls_user_id``
+    Read from ``LANGSMITH_USER_ID`` in the environment (typically loaded from
+    ``.env``). Users find the value in ``fleet/config.json`` under
+    ``metadata.ls_user_id``. Auto-resolving via ``/api/v1/me/ls_user_id``
     returns 403 for PAT auth, so callers should fail with a clear message
     rather than retry.
-
-    TODO: once Fleet exports include ls_user_id in fleet/config.json, read it
-    from there and fall back to the env var, so users don't have to paste it by
-    hand.
     """
     return os.environ.get("LANGSMITH_USER_ID", "")
 
