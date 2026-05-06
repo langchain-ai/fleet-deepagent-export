@@ -86,16 +86,3 @@ Servers not in the registry are skipped with a warning.
 | `LANGSMITH_HOST_URL` | no | Override the LangSmith API host (default `https://api.smith.langchain.com`). Needed for self-hosted. |
 | `HOST_LANGCHAIN_API_URL` | no | Override the OAuth broker host (default `https://api.host.langchain.com`). Needed for self-hosted. |
 
-## Install
-
-Most users should follow the [Quickstart](#quickstart) above — the
-starter's `pyproject.toml` already depends on this package via the
-git URL below, so `make setup` (which runs `uv sync`) installs it for
-you. You don't need to touch dependencies by hand.
-
-For projects that bring their own runtime wiring (no starter), add to
-your `pyproject.toml` dependencies:
-
-```
-fleet-deepagent-export @ git+https://github.com/langchain-ai/fleet-deepagent-export.git
-```
