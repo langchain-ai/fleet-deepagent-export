@@ -83,6 +83,6 @@ Servers not in the registry are skipped with a warning.
 | `LANGSMITH_ORGANIZATION_ID` | yes | Org UUID. Copy from `fleet/config.json` → `metadata.organization_id`. Required alongside `LANGSMITH_TENANT_ID`. |
 | `LANGSMITH_USER_ID` | yes (if any OAuth tool) | User UUID. Copy from `fleet/config.json` → `metadata.ls_user_id`. Used for OAuth token exchange and builtin-server per-user grant lookup. |
 | `BUILTIN_MCP_URL` | yes (if any builtin tool) | e.g. `https://tools.langchain.com/mcp`. Hostname is used to detect which tool entries route to the builtin server. Hosted, localhost, and self-hosted deployments each set it to their respective URL. |
-| `LANGSMITH_HOST_URL` | no | Override the LangSmith API host (default `https://api.smith.langchain.com`). Needed for self-hosted. |
-| `HOST_LANGCHAIN_API_URL` | no | Override the OAuth broker host (default `https://api.host.langchain.com`). Needed for self-hosted. |
+| `LANGSMITH_HOST_URL` | no | Override the LangSmith API host (default `https://api.smith.langchain.com`). For self-hosted, set to `https://<your-langsmith-host>/api` — the helm chart's frontend nginx routes `/api/v1/platform/*` to the Fleet backend. |
+| `HOST_LANGCHAIN_API_URL` | no | Override the OAuth broker host (default `https://api.host.langchain.com`). For self-hosted with Fleet OAuth tools, set to `https://<your-langsmith-host>/api-host`. Requires `config.deployment.enabled: true` in your helm values; see the [self-hosted Fleet setup docs](https://docs.langchain.com/langsmith/deploy-self-hosted-full-platform) for the full OAuth provider configuration. |
 
