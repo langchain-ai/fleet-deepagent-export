@@ -8,6 +8,8 @@ Runtime support for agents exported from LangSmith Fleet. Reads the export confi
 
 Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/) and Python 3.11+ (`uv` will fetch a compatible Python if you don't have one).
 
+> Working with a coding agent (Claude Code, Cursor, etc.)? Point it at this repo and your `.zip` and ask it to set up the starter — the IDs it needs for `.env` are all in `fleet/config.json` after unzipping.
+
 1. Clone this repo and copy the starter out of it:
    ```bash
    git clone https://github.com/langchain-ai/fleet-deepagent-export.git
