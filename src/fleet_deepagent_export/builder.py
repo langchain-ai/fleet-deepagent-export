@@ -84,8 +84,8 @@ def _load_model_id(project_dir: Path) -> str:
     config_path = project_dir / "config.json"
     if not config_path.exists():
         raise FileNotFoundError(
-            f"Fleet export is missing {config_path}. Re-unzip your Fleet export into "
-            f"{project_dir}/ — it should include config.json."
+            f"{config_path} not found. Drop your Fleet export into {project_dir}/ "
+            f"(see {project_dir}/README.md)."
         )
     config = json.loads(config_path.read_text(encoding="utf-8"))
     try:

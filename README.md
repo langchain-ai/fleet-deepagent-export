@@ -13,7 +13,7 @@ Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/) and Pyt
    git clone https://github.com/langchain-ai/fleet-deepagent-export.git
    cp -R fleet-deepagent-export/examples/template-agent my-agent && cd my-agent
    ```
-2. Export your agent from LangSmith Fleet (the `.zip`), then drop the contents into `fleet/`:
+2. Export your agent from LangSmith Fleet (the `.zip`), then drop the contents into `fleet/` (which ships empty apart from a placeholder README):
    ```bash
    unzip path/to/my-export.zip -d fleet/
    ```
@@ -40,7 +40,7 @@ rm -rf fleet && unzip path/to/my-new-export.zip -d fleet/
 
 The starter separates "code from Fleet" from "code you add":
 
-- `fleet/` (AGENTS.md, tools.json, subagents/, skills/) — owned by Fleet. Re-unzip a fresh export here to update; nothing else is touched.
+- `fleet/` — owned by Fleet. Ships empty (just a placeholder README); drop your export contents here (`AGENTS.md`, `config.json`, `tools.json`, optional `subagents/` and `skills/`). Re-unzip a fresh export to update; nothing else is touched.
 - `agent.py` — graph wiring. The model comes from `fleet/config.json`; replace the `model = components.pop("model")` line to override. The starter ships with `langchain-anthropic`, `langchain-openai`, and `langchain-google-genai` installed — for any other provider prefix (`bedrock:`, `mistralai:`, etc.), add the matching `langchain-<provider>` package to `pyproject.toml`.
 - `custom_tools.py` — owned by you. Add code-defined tools; merged with Fleet MCP tools at runtime.
 - `custom_middleware.py` — owned by you. Add `AgentMiddleware` instances for logging, filters, pre/post hooks, etc.
